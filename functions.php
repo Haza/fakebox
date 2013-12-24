@@ -1,6 +1,23 @@
 <?php
 
 /**
+ * We will always call this function.
+ */
+function fakebox_init($dir) {
+  // Populate the mail value.
+  if (empty($_GET['mail'])) {
+    // Get the last one.
+    $scanned_directory = scan_directory($dir);
+
+    $file = array_shift($scanned_directory);
+    header('Location: /?mail=' . base64url_encode($file) . '');
+  }
+
+  // Also check if we want to delete something.
+  delete_email($dir);
+}
+
+/**
  * Encore a base64 string without the weird chars at the end.
  *
  * @param $data
@@ -76,23 +93,6 @@ function scan_directory($data_path) {
   krsort($list);
 
   return $list;
-}
-
-/**
- * We will always call this function.
- */
-function fakebox_init($dir) {
-  // Populate the mail value.
-  if (empty($_GET['mail'])) {
-    // Get the last one.
-    $scanned_directory = scan_directory($dir);
-
-    $file = array_pop($scanned_directory);
-    header('Location: /?mail=' . base64url_encode($file) . '');
-  }
-
-  // Also check if we want to delete something.
-  delete_email($dir);
 }
 
 /**
