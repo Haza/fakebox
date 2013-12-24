@@ -3,6 +3,8 @@ Fakebox
 
 This little web application can be use to read email text files in a developpement environnement.
 
+[![](http://i.haza.fr/dm/V1OC/Fakebox_2013-12-24_17-43-29.png)](http://i.haza.fr/di/V1OC/Fakebox_2013-12-24_17-43-29.png)
+
 It is best use with [Nullmailer](http://untroubled.org/nullmailer/) and [Fakemail](http://www.lastcraft.com/fakemail.php).
 
 ## Nullmailer
@@ -16,4 +18,5 @@ A fake mail server that captures e-mails as files.
 ## How to use Fakebox
 
 There is just one little line to change in index.php to match you configuration. The line is the ``$dir    = '/inbox';`` line. You need to change that to match the directory where you have told fakemail to store emails.
+This will be changed in the next versions.
 
